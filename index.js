@@ -43,3 +43,25 @@ function reverse(arr, start, end) {
 
 // Example
 console.log(rotateArray([1,2,3,4,5,6,7], 2));
+
+// 3. Remove Duplicates from Sorted Array
+function removeDuplicates(nums) {
+    if(nums.length === 0) {
+        return 0;
+    }
+
+    let i = 0;
+    for(let j = 1; j < nums.length; j++) {
+        if(nums[i] != nums[j]){
+            i++;
+            nums[i] = nums[j];
+        }
+    }
+    return i+1;
+}
+
+const data = [1,1,2,2,3,4,4];
+const count = removeDuplicates(data);
+
+console.log(data);
+console.log(count);
