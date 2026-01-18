@@ -81,3 +81,21 @@ function maxSubArray(nums) {
 
 // Example
 console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4])); // 6
+
+
+// 5. Two sum
+function twoSum(nums, target) {
+  const map = new Map(); // value → index
+
+  for (let i = 0; i < nums.length; i++) {
+    const needed = target - nums[i];
+
+    if (map.has(needed)) {
+      return [map.get(needed), i];
+    }
+
+    map.set(nums[i], i);
+  }
+}
+
+console.log(twoSum([3,2,1,4], 6))
