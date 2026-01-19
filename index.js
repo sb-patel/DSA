@@ -99,3 +99,30 @@ function twoSum(nums, target) {
 }
 
 console.log(twoSum([3,2,1,4], 6))
+
+// 6. Container with most water
+
+function maxArea(height) {
+  let left = 0;
+  let right = height.length - 1;
+  let maxWater = 0;
+
+  while (left < right) {
+    const width = right - left;
+    const minHeight = Math.min(height[left], height[right]);
+    const area = width * minHeight;
+
+    maxWater = Math.max(maxWater, area);
+
+    if (height[left] < height[right]) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+
+  return maxWater;
+}
+
+// Example
+console.log(maxArea([1,8,6,2,5,4,8,3,7])); // 49
