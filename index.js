@@ -148,3 +148,23 @@ function maxProfit(prices) {
 
 // Example
 console.log(maxProfit([7,1,5,3,6,4])); // 5
+
+
+// 8. Missing number
+
+function missingNumber(nums) {
+  let xor = 0;
+
+  for (let i = 0; i <= nums.length; i++) {
+    xor ^= i;
+  }
+
+  for (let num of nums) {
+    xor ^= num;
+  }
+
+  return xor;
+}
+
+// Example
+console.log(missingNumber([0,1,3,2,5]));
