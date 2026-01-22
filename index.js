@@ -168,3 +168,30 @@ function missingNumber(nums) {
 
 // Example
 console.log(missingNumber([0,1,3,2,5]));
+
+
+// 9. Find All Numbers Disappeared in an Array
+function findDisappearedNumbers(nums) {
+  const result = [];
+
+  // Step 1: Mark visited numbers
+  for (let i = 0; i < nums.length; i++) {
+    const index = Math.abs(nums[i]) - 1;
+
+    if (nums[index] > 0) {
+      nums[index] = -nums[index];
+    }
+  }
+
+  // Step 2: Find missing numbers
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] > 0) {
+      result.push(i + 1);
+    }
+  }
+
+  return result;
+}
+
+// Example
+console.log(findDisappearedNumbers([1, 3, 5, 1, 6, 8, 9, 3]));
